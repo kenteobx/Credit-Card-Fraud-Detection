@@ -89,7 +89,10 @@ The dataset consists of:
 
 ### Random Forest
 
-### Graph Neural Network (GNN)
+### Heterogeneous GraphSAGE
+
+
+### LightGBM ensemble
 
 
 ## Evaluation of Models
