@@ -12,14 +12,15 @@ Credit-Card-Fraud-Detection/
 │   ├── EDA
 │       └── EDA.ipynb                                   # EDA of engineered dataset
 │   ├── Feature Engineering
-│       ├── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
-│       └── feature_eng.ipynb                           # preprocessing steps and feature engineering
+│       ├── feature_eng.ipynb                           # preprocessing steps and feature engineering
+│       └── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
 │   └── Models
 │       ├── Baseline model
 │       └── Challenger models                          
-│           ├── Random Forest Classifier.ipynb          # random forest model
+│           ├── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
+│           ├── hetero_graphsage_build_graph.py            
 │           ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
-│           └── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
+│           └── Random Forest Classifier.ipynb          # random forest model
 ├── Data/
 │   ├── raw/                                            # contains original datasets
 │       ├── sd254_cards.csv
@@ -29,8 +30,8 @@ Credit-Card-Fraud-Detection/
 │       ├── baseline_splits/                            # contains splits for baseline model
 │       └── challenger_splits/                          # contains splits for challenger models
 │           ├── rf_splits/                              # contains splits used in random forest model
-│               ├── train_y.csv
 │               ├── test_y.csv
+│               ├── train_y.csv
 │               └── README.md                           # Instructions for random forest processed datasets
 ├── GNN Data/
 │ ├── best_search_model.pt                              # best model
