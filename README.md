@@ -21,16 +21,16 @@ Credit-Card-Fraud-Detection/
 │           └── Random Forest Classifier.ipynb          # random forest model
 ├── Data/
 │   ├── raw/                                            # contains original datasets
+│       ├── README.md                                   # Instructions for raw datasets
 │       ├── sd254_cards.csv
-│       ├── sd254_users.csv
-│       └── README.md                                   # Instructions for raw datasets
+│       └── sd254_users.csv
 │   └── processed/  
 │       ├── baseline_splits/                            # contains splits for baseline model
 │       └── challenger_splits/                          # contains splits for challenger models
 │           ├── rf_splits/                              # contains splits used in random forest model
+│               ├── README.md                           # Instructions for random forest processed datasets
 │               ├── test_y.csv
-│               ├── train_y.csv
-│               └── README.md                           # Instructions for random forest processed datasets
+│               └── train_y.csv
 ├── GNN Data/
 │ ├── best_search_model.pt                              # best model
 │ ├── graph_15features_scaled_balanced.pt               # processed heterogeneous graph dataset
