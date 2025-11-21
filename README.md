@@ -24,14 +24,14 @@ Credit-Card-Fraud-Detection/
 │   ├── raw/                                            # contains original datasets
 │       ├── sd254_cards.csv
 │       ├── sd254_users.csv
-│       ├── README.md                                   # Instructions for raw datasets
-│   ├── processed/  
+│       └── README.md                                   # Instructions for raw datasets
+│   └── processed/  
 │       ├── baseline_splits/                            # contains splits for baseline model
 │       └── challenger_splits/                          # contains splits for challenger models
 │           ├── rf_splits/                              # contains splits used in random forest model
 │               ├── train_y.csv
 │               ├── test_y.csv
-│               ├── README.md                           # Instructions for random forest processed datasets
+│               └── README.md                           # Instructions for random forest processed datasets
 ├── GNN Data/
 │ ├── best_search_model.pt                              # best model
 │ ├── graph_15features_scaled_balanced.pt               # processed heterogeneous graph dataset
