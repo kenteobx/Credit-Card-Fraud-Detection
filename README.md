@@ -79,6 +79,7 @@ The dataset consists of:
 | `Card Brand`                | String    | Brand of card used for transaction  | "Mastercard"   |
 | `Credit Limit`              | Float     | Card's credit limit   | 39751.0  |
 | `Card on Dark Web`          | String    | Whether the card is on the dark web    | "No"     |
+| `merchant_state_diff`       | Boolean   | Flag indicating whether the state of the merchant matches the state of the users    | True |
 | `amount_is_refund`          | Integer   | Flag indicating if transaction values were negative | 0, 1   |
 | `amount_log`                | Float     | Log of transaction amount  | 2.309561  |
 | `von_mises_likelihood_card` | Float     | Measures how typical the transaction timing is for a given card  | 1.285982 |
