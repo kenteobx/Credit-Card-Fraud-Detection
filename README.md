@@ -12,47 +12,53 @@ Methods:
 ```
 Credit-Card-Fraud-Detection/
 ├── Notebooks/
-│   ├── EDA
-│   │   └── EDA.ipynb                                   # EDA of engineered dataset
-│   ├── Feature Engineering
-│   │   ├── feature_eng.ipynb                           # preprocessing steps and feature engineering
-│   │   └── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
-│   └── Models
-│       ├── Baseline model
-│       │   └── logistic_regression.ipynb               # baseline logistic regression model
-│       └── Challenger models                          
-│           ├── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
-│           ├── hetero_graphsage_build_graph.py         # prepares dataset for hetero graphsage and ensemble model
-│           ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
-│           └── Random Forest Classifier.ipynb          # random forest model
+│   ├── EDA/
+│   │   └── EDA.ipynb                                   # exploratory data analysis
+│   ├── Feature Engineering/
+│   │   ├── feature_eng.ipynb                           # preprocessing + feature engineering
+│   │   └── feature_eng_rf.ipynb                        # preprocessing for random forest variant
+│   └── Models/
+│       ├── Baseline model/
+│       │   └── logistic_regression.ipynb               # baseline LR model
+│       └── Challenger models/
+│           ├── graphsage_lgbm_ensemble.ipynb           # GraphSAGE + LightGBM ensemble
+│           ├── hetero_graphsage_build_graph.py         # builds heterogeneous GNN graph dataset
+│           ├── hetero_graphsage_model_training.ipynb   # trains hetero GraphSAGE model
+│           └── Random Forest Classifier.ipynb          # RF model
+│
 ├── Data/
-│   ├── raw/                                            
-│   │   ├── README.md                                   # instructions for raw datasets
-│   │   ├── sd254_cards.csv                             # original cards dataset
-│   │   └── sd254_users.csv                             # original users dataset
-│   └── processed/  
-│       ├── baseline_splits/                            # contains splits for baseline model
-│       │   ├── test_X.csv
-│       │   ├── test_y.csv
-│       │   ├── train_X.csv
-│       │   └── train_y.csv
-│       └── challenger_splits/                          # contains splits for challenger models
-│           ├── rf_splits/                              # contains splits used in random forest model
-│           │   ├── README.md                           # instructions for random forest processed datasets
-│           │   ├── test_y.csv
-│           │   └── train_y.csv
-│           └── original/                               # contains original splits for challenger models
-│               ├── test_X.csv
-│               ├── test_y.csv
-│               ├── train_X.csv
-│               └── train_y.csv
-├── GNN Data/
-│   ├── best_search_model.pt                            # best model
-│   ├── graph_15features_scaled_balanced.pt             # processed heterogeneous graph dataset
-│   └── search_summary.json                             # best model hyperparameters
-├── README.md                                           # project documentation
-├── eda_requirements.txt                                # Python dependencies for EDA.ipynb
-└── requirements.txt                                    # Python dependencies for GNN
+│   ├── raw/                                             # raw unprocessed datasets
+│   │   ├── README.md
+│   │   ├── sd254_cards.csv
+│   │   └── sd254_users.csv
+│   │
+│   ├── processed/                                       # datasets after preprocessing
+│   │   ├── baseline_splits/                             # baseline train/test splits
+│   │   │   ├── train_X.csv
+│   │   │   ├── train_y.csv
+│   │   │   ├── test_X.csv
+│   │   │   └── test_y.csv
+│   │   │
+│   │   └── challenger_splits/                           # challenger-model splits
+│   │       ├── rf_splits/                               # splits used for Random Forest model
+│   │       │   ├── README.md
+│   │       │   ├── train_y.csv
+│   │       │   └── test_y.csv
+│   │       │
+│   │       └── original/                                # original challenger splits
+│   │           ├── train_X.csv
+│   │           ├── train_y.csv
+│   │           ├── test_X.csv
+│   │           └── test_y.csv
+│   │
+│   └── gnn/
+│       ├── graph_15features_scaled_balanced.pt   # processed heterogeneous graph dataset used for GNN training
+│       ├── best_search_model.pt                  # best hetero GraphSAGE model weights from hyperparameter search
+│       └── search_summary.json                   # JSON log of search space, trials, and best hyperparameters
+│
+├── README.md                                             # project overview & documentation
+├── eda_requirements.txt                                  # dependencies for EDA notebooks
+└── requirements.txt                                       # dependencies for GNN & ensemble models
 ```
 
 ## Dataset
