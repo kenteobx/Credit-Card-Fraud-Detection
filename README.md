@@ -151,6 +151,22 @@ Code/Models/Challenger models/Random Forest Classifier.ipynb
 Traditional fraud detection models often fail to capture sophisticated fraud rings where attackers mimic normal behaviour to blend in. However, these fraudulent activities frequently rely on a shared, underlying infrastructure. For instance, a group of fraudulent users might be linked to the same devices, IP addresses, or colluding merchants.
 A GNN is well suited for this setting because it learns embeddings (feature representations) for each entity not only from its own attributes, but also from the attributes and labels of its neighbours. This allows the model to detect suspicious communities, such as a dense cluster of users and merchants sharing a small set of devices or locations, patterns that are invisible to a standard transaction-level model.
 
+#### Steps to run the Heterogeneous GraphSAGE model
+1. Run `feature_eng.ipynb` to generate the initial engineered transaction CSVs (train_X.csv, train_y.csv, test_X.csv, test_y.csv).
+```
+Code/Feature Engineering/feature_eng.ipynb
+```
+2. Run `hetero_graphsage_build_graph.py` to build the heterogeneous graph and save `graph_15features_scaled_balanced.pt`.
+```
+Code/Models/Challenger models/hetero_graphsage_build_graph.py 
+```
+
+3. Run `hetero_graphsage_model_training.ipynb` to train the Heterogeneous GraphSAGE model and produce:
+   * `best_search_model.pt` 
+   * `search_summary.json`
+```
+Code/Models/Challenger models/hetero_graphsage_model_training.ipynb  
+```
 
 ### GraphSAGE - LightGBM ensemble
 #### Motivation
@@ -158,7 +174,16 @@ GNNs excel at learning expressive representations by aggregating neighbourhood i
 
 To combine these strengths, a stacking ensemble was used: the Heterogeneous GraphSAGE model serves purely as a feature extractor, and LightGBM performs the final fraud classification.
 
-
+#### Steps to run the GraphSAGE - LightGBM ensemble
+1. Run steps 1-3 in Steps to run the Heterogeneous GraphSAGE model 
+2. Run `graphsage_lgbm_ensemble.ipynb` to:
+    * load the trained GNN checkpoint (`best_search_model.pt`) and `search_summary.json`
+    * extract 768-dimensional edge embeddings
+    * train the LightGBM classifier on these embeddings
+    * generate validation/test predictions
+```
+Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
+```
 
 ## Evaluation of Models
 
