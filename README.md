@@ -153,12 +153,11 @@ A GNN is well suited for this setting because it learns embeddings (feature repr
 
 #### Steps to run the Heterogeneous GraphSAGE model
 
-
 1. Follow the above steps in `Instructions on how to run the models` section
 
 2. Run hetero_graphsage_build_graph.py to build the heterogeneous graph and save `graph_15features_scaled_balanced.pt`.
 ```
-Code/Models/Challenger models/hetero_graphsage_build_graph.py
+python Code/Models/Challenger models/hetero_graphsage_build_graph.py
 ```
 3. Run hetero_graphsage_model_training.ipynb to train the Heterogeneous GraphSAGE model and produce:
     * best_search_model.pt
@@ -174,12 +173,13 @@ GNNs excel at learning expressive representations by aggregating neighbourhood i
 To combine these strengths, a stacking ensemble was used: the Heterogeneous GraphSAGE model serves purely as a feature extractor, and LightGBM performs the final fraud classification.
 
 #### Steps to run the GraphSAGE - LightGBM model
-
+> [!NOTE]
+> The Heterogeneous GraphSAGE model needs to be run first before running the ensemble model.
 
 1. Follow the above steps in `Instructions on how to run the models` section
 
 2. Run `graphsage_lgbm_ensemble.ipynb` to:
-    *load the trained GNN checkpoint (best_search_model.pt) and `search_summary.json`
+    * load the trained GNN checkpoint (best_search_model.pt) and `search_summary.json`
     * extract 768-dimensional edge embeddings
     * train the LightGBM classifier on these embeddings
     * generate validation/test predictions
