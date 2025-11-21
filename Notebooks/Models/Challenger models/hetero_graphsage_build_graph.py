@@ -22,7 +22,6 @@ directly as the input dataset by the next stages:
 
 
 
-
 import torch
 from torch_geometric.data import HeteroData
 from torch_geometric.nn import Linear
@@ -39,7 +38,7 @@ import gc
 import random
 
 # Configuration
-DATA_DIR = "/home/ubuntu/data/" # edit accordingly
+DATA_DIR = "../../Data/processed/challenger_splits/original/"
 train_x_path = os.path.join(DATA_DIR, "train_X.csv")
 train_y_path = os.path.join(DATA_DIR, "train_y.csv")
 test_x_path  = os.path.join(DATA_DIR, "test_X.csv")
