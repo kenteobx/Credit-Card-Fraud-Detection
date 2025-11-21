@@ -52,7 +52,7 @@ Credit-Card-Fraud-Detection/
 │       └── sd254_users.csv
 ├── README.md                                           # project overview & documentation
 ├── eda_requirements.txt                                # dependencies for EDA notebooks
-└── gnn_and_ensemblegnn_and_ensemble.txt                                    # dependencies for GNN & ensemble models
+└── gnn_and_ensemble.txt                                # dependencies for GNN & ensemble models
 ```
 
 ## Dataset
