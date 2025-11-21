@@ -27,38 +27,38 @@ Credit-Card-Fraud-Detection/
 │           └── Random Forest Classifier.ipynb          # RF model
 │
 ├── Data/
-│   ├── gnn/                                             # graph dataset + GNN model outputs
-│   │   ├── best_search_model.pt                         # best hetero GraphSAGE model weights
-│   │   ├── graph_15features_scaled_balanced.pt          # processed heterogeneous graph dataset
-│   │   └── search_summary.json                          # hyperparameter tuning summary
+│   ├── gnn/                                            # graph dataset + GNN model outputs
+│   │   ├── best_search_model.pt                        # best hetero GraphSAGE model weights
+│   │   ├── graph_15features_scaled_balanced.pt         # processed heterogeneous graph dataset
+│   │   └── search_summary.json                         # hyperparameter tuning summary
 │   │
-│   ├── processed/                                       # datasets after feature engineering
-│   │   ├── baseline_splits/                             # baseline model splits
+│   ├── processed/                                      # datasets after feature engineering
+│   │   ├── baseline_splits/                            # baseline model splits
 │   │   │   ├── test_X.csv
 │   │   │   ├── test_y.csv
 │   │   │   ├── train_X.csv
 │   │   │   └── train_y.csv
 │   │   │
-│   │   └── challenger_splits/                           # challenger-model splits
-│   │       ├── original/                                # original challenger splits
+│   │   └── challenger_splits/                          # challenger-model splits
+│   │       ├── original/                               # original challenger splits
 │   │       │   ├── test_X.csv
 │   │       │   ├── test_y.csv
 │   │       │   ├── train_X.csv
 │   │       │   └── train_y.csv
 │   │       │
-│   │       └── rf_splits/                               # Random Forest-only splits
+│   │       └── rf_splits/                              # Random Forest-only splits
 │   │           ├── README.md
 │   │           ├── test_y.csv
 │   │           └── train_y.csv
 │   │
-│   └── raw/                                             # original unprocessed datasets
+│   └── raw/                                            # original unprocessed datasets
 │       ├── README.md
 │       ├── sd254_cards.csv
 │       └── sd254_users.csv
 │
-├── README.md                                             # project overview & documentation
-├── eda_requirements.txt                                  # dependencies for EDA notebooks
-└── requirements.txt                                       # dependencies for GNN & ensemble models
+├── README.md                                           # project overview & documentation
+├── eda_requirements.txt                                # dependencies for EDA notebooks
+└── requirements.txt                                    # dependencies for GNN & ensemble models
 ```
 
 ## Dataset
@@ -116,7 +116,7 @@ cd Credit-Card-Fraud-Detection
 ```
 pip install -r requirements.txt
 ```
-3. Download dataset
+3. Download the datasets from [Kaggle Credit Card Transactions](https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions/data) and store it in the `Data/raw/` folder 
 
 4. Open and execute `feature_eng.ipynb` to obtain train and test splits
 ```
