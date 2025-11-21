@@ -14,7 +14,7 @@ Credit-Card-Fraud-Detection/
 │   ├── Feature Engineering
 │       ├── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
 │       └── feature_eng.ipynb                           # preprocessing steps and feature engineering
-│   ├── Models
+│   └── Models
 │       ├── Baseline model
 │       └── Challenger models                          
 │           ├── Random Forest Classifier.ipynb          # random forest model
