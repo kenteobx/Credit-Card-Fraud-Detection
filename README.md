@@ -156,7 +156,13 @@ A GNN is well suited for this setting because it learns embeddings (feature repr
 
 1. Follow the above steps in `Instructions on how to run the models` section
 
-2. Open and execute `hetero_graphsage_model_training.ipynb` to run the Heterogeneous GraphSAGE model
+2. Run hetero_graphsage_build_graph.py to build the heterogeneous graph and save `graph_15features_scaled_balanced.pt`.
+```
+Code/Models/Challenger models/hetero_graphsage_build_graph.py
+```
+3. Run hetero_graphsage_model_training.ipynb to train the Heterogeneous GraphSAGE model and produce:
+    * best_search_model.pt
+    * search_summary.json
 ```
 Code/Models/Challenger models/hetero_graphsage_model_training.ipynb
 ```
@@ -172,7 +178,11 @@ To combine these strengths, a stacking ensemble was used: the Heterogeneous Grap
 
 1. Follow the above steps in `Instructions on how to run the models` section
 
-2. Open and execute `graphsage_lgbm_ensemble.ipynb` to run the graphSAGE LightGBM model
+2. Run `graphsage_lgbm_ensemble.ipynb` to:
+    *load the trained GNN checkpoint (best_search_model.pt) and `search_summary.json`
+    * extract 768-dimensional edge embeddings
+    * train the LightGBM classifier on these embeddings
+    * generate validation/test predictions
 ```
 Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
 ```
