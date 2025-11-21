@@ -3,9 +3,7 @@
 Due to the vast volume of daily transactions, financial institutions face significant challenges in detecting and preventing fraudulent card transactions. Traditional fraud detection systems often fail to adapt to the speed of the evolving fraud tactics, resulting in undetected fraud that not only inconvenience customers and merchants but can also lead to losses in financial institutions.
 This project aims to develop a data-driven fraud detection system that is capable of accurately identifying fraudulent activities using card transactions. By leveraging data analysis and a range of algorithms, this projects aims to accurately identify fraudulent activities, strengthening financial risk management systems.
 
-## How to use this repository
-
-### Repository Structure
+## Repository Structure
 ```
 Credit-Card-Fraud-Detection/
 ├── Notebooks/
@@ -86,10 +84,7 @@ The dataset consists of:
 | `von_mises_likelihood_card` | Float     | Measures how typical the transaction timing is for a given card  | 1.285982 |
 | `Is Fraud?`                 | Integer   | Indicates if the transaction was fraudulent or not  | 0, 1 |
 
-## Project Steps
-
-
-## Models Used 
+## Instructions on how to run the models
 ### Logistic Regression
 
 ### Random Forest
