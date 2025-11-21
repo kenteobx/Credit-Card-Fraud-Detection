@@ -152,35 +152,27 @@ Traditional fraud detection models often fail to capture sophisticated fraud rin
 A GNN is well suited for this setting because it learns embeddings (feature representations) for each entity not only from its own attributes, but also from the attributes and labels of its neighbours. This allows the model to detect suspicious communities, such as a dense cluster of users and merchants sharing a small set of devices or locations, patterns that are invisible to a standard transaction-level model.
 
 #### Steps to run the Heterogeneous GraphSAGE model
-1. Run `feature_eng.ipynb` to generate the initial engineered transaction CSVs (train_X.csv, train_y.csv, test_X.csv, test_y.csv).
+
+
+1. Follow the above steps in `Instructions on how to run the models` section
+
+2. Open and execute `hetero_graphsage_model_training.ipynb` to run the Heterogeneous GraphSAGE model
 ```
-Code/Feature Engineering/feature_eng.ipynb
-```
-2. Run `hetero_graphsage_build_graph.py` to build the heterogeneous graph and save `graph_15features_scaled_balanced.pt`.
-```
-Code/Models/Challenger models/hetero_graphsage_build_graph.py 
+Code/Models/Challenger models/hetero_graphsage_model_training.ipynb
 ```
 
-3. Run `hetero_graphsage_model_training.ipynb` to train the Heterogeneous GraphSAGE model and produce:
-   * `best_search_model.pt` 
-   * `search_summary.json`
-```
-Code/Models/Challenger models/hetero_graphsage_model_training.ipynb  
-```
-
-### GraphSAGE - LightGBM ensemble
+### GraphSAGE - LightGBM Ensemble
 #### Motivation
 GNNs excel at learning expressive representations by aggregating neighbourhood information, but their final prediction layers are typically shallow (a linear layer or small MLP). In contrast, gradient-boosted trees such as LightGBM handle tabular decision boundaries extremely well.
 
 To combine these strengths, a stacking ensemble was used: the Heterogeneous GraphSAGE model serves purely as a feature extractor, and LightGBM performs the final fraud classification.
 
-#### Steps to run the GraphSAGE - LightGBM ensemble
-1. Run steps 1-3 in Steps to run the Heterogeneous GraphSAGE model 
-2. Run `graphsage_lgbm_ensemble.ipynb` to:
-    * load the trained GNN checkpoint (`best_search_model.pt`) and `search_summary.json`
-    * extract 768-dimensional edge embeddings
-    * train the LightGBM classifier on these embeddings
-    * generate validation/test predictions
+#### Steps to run the GraphSAGE - LightGBM model
+
+
+1. Follow the above steps in `Instructions on how to run the models` section
+
+2. Open and execute `graphsage_lgbm_ensemble.ipynb` to run the graphSAGE LightGBM model
 ```
 Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
 ```
@@ -196,3 +188,8 @@ Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
 
 Although the Random Forest achieves a very high ROC-AUC (0.9823), its PR-AUC is lower (0.6590). In contrast, the GNN-LightGBM Ensemble attains a slightly lower ROC-AUC (0.9299) but a higher PR-AUC (0.7374), which is the primary metric under severe class imbalance. Accordingly, the GNN-LightGBM ensemble built on GNN embeddings is the preferred model. It combines the GNN’s relational representations with LightGBM’s ability to model complex non-linear patterns, producing the strongest discrimination and the largest uplift in PR-AUC. Hence, the ensemble model is a strong candidate for deployment within a financial institution’s fraud-detection workflow, especially in environments where investigative resources are limited and high-impact cases must be surfaced efficiently.
 
+## Potential Implementation
+
+The model can be deployed as a case-based investigation tool that is triggered after a report from customers regarding a suspicious activity. When the dispute is raised, the model is able to generate risk scores for the related transaction and entities. This helps investigators quickly identify additional fraudulent activity on the same account and within the same clusters, allowing institutions to block cards, reverse charges and prevent further losses. 
+
+The same model can also be used as a continuous monitoring system in the company’s fraud management department. On a regular basis, the model can help to score new transactions and update risk scores for users, cards, merchants and flag possible clusters. These outputs can be displayed on a dashboard and form an alert list for the fraud management team, supporting the identification of undetected fraud rings and suspicious networks. 
