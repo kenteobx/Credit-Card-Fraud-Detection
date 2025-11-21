@@ -142,3 +142,10 @@ Only the GNN-derived embeddings were used; raw edge attributes were not included
 
 
 ## Evaluation of Models
+
+|Model|ROC-AUC|PR-AUC|Comments|
+|-----|-------|------|--------|
+|Logistic Regression|0.5341|0.0014|Baseline is only slightly better than random guessing, with extremely low PR-AUC reflecting inability to identify fraud cases due to severe class imbalance.|
+|Random Forest|0.9823|0.6590|Achieves a strong ranking performance and solid fraud-detection effectiveness despite severe class imbalance. |
+|Heterogeneous GraphSAGE|0.8853|0.5840|Captures user–merchant behavioural structure effectively and outperforms all tabular baselines. Provides strong ranking performance under severe class imbalance, with a clear PR-AUC lift despite low fraud prevalence.|
+|GraphSAGE-LightGBM Ensemble|0.9299|0.7374|Leverages the GNN’s structural embeddings and substantially boosts predictive accuracy. LightGBM models the non-linear fraud patterns that the GNN head alone cannot, resulting in the highest overall ROC-AUC and PR-AUC.|
