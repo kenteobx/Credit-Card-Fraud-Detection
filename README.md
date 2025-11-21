@@ -9,32 +9,36 @@ This project aims to develop a data-driven fraud detection system that is capabl
 ```
 Credit-Card-Fraud-Detection/
 ├── Notebooks/
-│   ├── Random Forest                           # Contains data preprocessing and modelling for random forest
-│       ├── Random Forest Classifier.ipynb      # random forest model
-│       ├── feature_eng_rf.ipynb                # preprocessing and feature engineering for random forest
-│   ├── feature_eng.ipynb                       # preprocessing steps and feature engineering
-│   ├── EDA.ipynb                               # EDA of engineered dataset
-│   ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
-│   └── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
+│   ├── EDA
+│       └── EDA.ipynb                                   # EDA of engineered dataset
+│   ├── Feature Engineering
+│       ├── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
+│       └── feature_eng.ipynb                           # preprocessing steps and feature engineering
+│   ├── Models
+│       ├── Baseline model
+│       ├── Challenger models                          
+│           ├── Random Forest Classifier.ipynb          # random forest model
+│           ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
+│           └── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
 ├── Data/
-│   ├── raw/                                    # contains original datasets
+│   ├── raw/                                            # contains original datasets
 │       ├── sd254_cards.csv
 │       ├── sd254_users.csv
-│       ├── README.md                           # Instructions for raw datasets
+│       ├── README.md                                   # Instructions for raw datasets
 │   ├── processed/  
-│       ├── baseline_splits/                    # contains splits for baseline model
-│       └── challenger_splits/                  # contains splits for challenger models
-│           ├── rf_splits/                      # contains splits used in random forest model
+│       ├── baseline_splits/                            # contains splits for baseline model
+│       └── challenger_splits/                          # contains splits for challenger models
+│           ├── rf_splits/                              # contains splits used in random forest model
 │               ├── train_y.csv
 │               ├── test_y.csv
-│               ├── README.md
+│               ├── README.md                           # Instructions for random forest processed datasets
 ├── GNN Data/
-│ ├── best_search_model.pt                      # best model
-│ ├── graph_15features_scaled_balanced.pt       # processed heterogeneous graph dataset
-│ └── search_summary.json                       # best model hyperparameters
-├── README.md                                   # project documentation
-├── eda_requirements.txt                        # Python dependencies for EDA.ipynb
-└── requirements.txt                            # Python dependencies for GNN
+│ ├── best_search_model.pt                              # best model
+│ ├── graph_15features_scaled_balanced.pt               # processed heterogeneous graph dataset
+│ └── search_summary.json                               # best model hyperparameters
+├── README.md                                           # project documentation
+├── eda_requirements.txt                                # Python dependencies for EDA.ipynb
+└── requirements.txt                                    # Python dependencies for GNN
 ```
 
 ## Dataset
