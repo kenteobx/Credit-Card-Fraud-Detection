@@ -121,8 +121,6 @@ git clone https://github.com/kenteobx/Credit-Card-Fraud-Detection
 cd Credit-Card-Fraud-Detection
 ```
 2. Install dependencies
-
-   Note, different requirements.txt for different model are provided, please refer to repository structure above to know which requirements are needed
 ```
 pip install -r requirements.txt
 ```
