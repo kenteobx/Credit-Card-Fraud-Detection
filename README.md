@@ -117,28 +117,24 @@ pip install -r requirements.txt
 Notebooks/Feature Engineering/feature_eng.ipynb
 ```
 ### Logistic Regression
-
+#### Motivation
+We used a logistic regression model as the baseline model as it is a classification method that has been widely explored in fraud detection. Furthermore, it does not make any assumptions about the distribution of classes in the feature space, making it more flexible than linear regression. Coupled with its simplicity, high interpretability and efficiency, logistic regression makes an appropriate choice for a baseline. 
 
 ### Random Forest
-
+#### Motivation
+A Random Forest Classifier was selected as a challenger model because it can address the challenges that come with transactional datasets such as class imbalance, mixed features types and nonlinear fraud patterns. Fraudulent transactions are rare and depend on complex nonlinear behavioural and contextual features such as transaction frequency, amount, location and merchant. For the credit card transactions dataset, it is severely imbalanced, with only 0.12% of the transactions being fraudulent. Moreover, an analysis of the correlation between the features, consisting of both engineered and existing, shows that the features are mostly weakly correlated with the target variable (“Is Fraud?”). This suggests that fraud cannot be easily separated using linear relationships and most likely depends on nonlinear interactions. Hence, a Random Forest Classifier is suitable to be used as a challenger model.
 
 ### Heterogeneous GraphSAGE
+Traditional fraud detection models often fail to capture sophisticated fraud rings where attackers mimic normal behaviour to blend in. However, these fraudulent activities frequently rely on a shared, underlying infrastructure. For instance, a group of fraudulent users might be linked to the same devices, IP addresses, or colluding merchants.
+A GNN is well suited for this setting because it learns embeddings (feature representations) for each entity not only from its own attributes, but also from the attributes and labels of its neighbours. This allows the model to detect suspicious communities, such as a dense cluster of users and merchants sharing a small set of devices or locations, patterns that are invisible to a standard transaction-level model.
 
 
 ### GraphSAGE - LightGBM ensemble
-#### Methodology
-LightGBM was trained on the extracted embeddings with the original fraud labels. Key settings:
-* Objective: Binary classification
-* Optimisation Metrics: Average Precision (PR-AUC) and ROC-AUC
-* Class Imbalance Handling:
-  * scale_pos_weight ≈ 8.72 (matching the fraud ratio in the training split)
-* Regularisation:
-  * Feature fraction = 0.8
-  * Bagging fraction = 0.8
-* Model Capacity:
-  * 63 leaves per tree
-  * Learning rate = 0.05
-Only the GNN-derived embeddings were used; raw edge attributes were not included, ensuring the GNN acts as the main representation learner.
+#### Motivation
+GNNs excel at learning expressive representations by aggregating neighbourhood information, but their final prediction layers are typically shallow (a linear layer or small MLP). In contrast, gradient-boosted trees such as LightGBM handle tabular decision boundaries extremely well.
+
+To combine these strengths, a stacking ensemble was used: the Heterogeneous GraphSAGE model serves purely as a feature extractor, and LightGBM performs the final fraud classification.
+
 
 
 ## Evaluation of Models
