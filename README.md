@@ -32,19 +32,19 @@ Credit-Card-Fraud-Detection/
 │   │   └── sd254_users.csv                             # original users dataset
 │   └── processed/  
 │       ├── baseline_splits/                            # contains splits for baseline model
-│           ├── test_X.csv
-│           ├── test_y.csv
-│           └── train_X.csv
-│           └── train_y.csv
+│       │   ├── test_X.csv
+│       │   ├── test_y.csv
+│       │   ├── train_X.csv
+│       │   └── train_y.csv
 │       └── challenger_splits/                          # contains splits for challenger models
-│           └── rf_splits/                              # contains splits used in random forest model
-│               ├── README.md                           # instructions for random forest processed datasets
-│               ├── test_y.csv
-│               └── train_y.csv
+│           ├── rf_splits/                              # contains splits used in random forest model
+│           │   ├── README.md                           # instructions for random forest processed datasets
+│           │   ├── test_y.csv
+│           │   └── train_y.csv
 │           └── original/                               # contains original splits for challenger models
 │               ├── test_X.csv
 │               ├── test_y.csv
-│               └── train_X.csv
+│               ├── train_X.csv
 │               └── train_y.csv
 ├── GNN Data/
 │   ├── best_search_model.pt                            # best model
