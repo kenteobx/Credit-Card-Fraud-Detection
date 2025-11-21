@@ -160,9 +160,10 @@ A GNN is well suited for this setting because it learns embeddings (feature repr
 ```
 Code/Feature Engineering/feature_eng_rf.ipynb
 ```
-3. Open and execute `Random Forest Classifier.ipynb` to run the random forest model
+3. Open and execute `hetero_graphsage_model_training.ipynb` to run the Heterogeneous GraphSAGE model
 ```
 Code/Models/Challenger models/hetero_graphsage_model_training.ipynb
+```
 
 ### GraphSAGE - LightGBM ensemble
 #### Motivation
@@ -179,9 +180,10 @@ To combine these strengths, a stacking ensemble was used: the Heterogeneous Grap
 ```
 Code/Feature Engineering/feature_eng_rf.ipynb
 ```
-3. Open and execute `Random Forest Classifier.ipynb` to run the random forest model
+3. Open and execute `graphsage_lgbm_ensemble.ipynb` to run the graphSAGE LightGBM model
 ```
 Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
+```
 
 ## Evaluation of Models
 
