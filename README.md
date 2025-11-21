@@ -124,6 +124,18 @@ We used a logistic regression model as the baseline model as it is a classificat
 #### Motivation
 A Random Forest Classifier was selected as a challenger model because it can address the challenges that come with transactional datasets such as class imbalance, mixed features types and nonlinear fraud patterns. Fraudulent transactions are rare and depend on complex nonlinear behavioural and contextual features such as transaction frequency, amount, location and merchant. For the credit card transactions dataset, it is severely imbalanced, with only 0.12% of the transactions being fraudulent. Moreover, an analysis of the correlation between the features, consisting of both engineered and existing, shows that the features are mostly weakly correlated with the target variable (“Is Fraud?”). This suggests that fraud cannot be easily separated using linear relationships and most likely depends on nonlinear interactions. Hence, a Random Forest Classifier is suitable to be used as a challenger model.
 
+<u>Steps to run the Random Forest model</u>
+1. Follow the above steps in `Instructions on how to run the models` section
+
+2. Open and execute `feature_eng_rf.ipynb` to obtain the processed datasets for the random forest model
+```
+Notebooks/Feature Engineering/feature_eng_rf.ipynb
+```
+3. Open and execute `Random Forest Classifier.ipynb` to run the random forest model
+```
+Notebooks/Models/Challenger models/Random Forest Classifier.ipynb
+```
+
 ### Heterogeneous GraphSAGE
 Traditional fraud detection models often fail to capture sophisticated fraud rings where attackers mimic normal behaviour to blend in. However, these fraudulent activities frequently rely on a shared, underlying infrastructure. For instance, a group of fraudulent users might be linked to the same devices, IP addresses, or colluding merchants.
 A GNN is well suited for this setting because it learns embeddings (feature representations) for each entity not only from its own attributes, but also from the attributes and labels of its neighbours. This allows the model to detect suspicious communities, such as a dense cluster of users and merchants sharing a small set of devices or locations, patterns that are invisible to a standard transaction-level model.
