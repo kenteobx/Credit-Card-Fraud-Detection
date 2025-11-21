@@ -94,7 +94,7 @@ The dataset consists of:
 | `Card Brand`                | String    | Brand of card used for transaction  | "Mastercard"   |
 | `Credit Limit`              | Float     | Card's credit limit   | 39751.0  |
 | `Card on Dark Web`          | String    | Whether the card is on the dark web    | "No"     |
-| `merchant_state_diff`       | Boolean   | Flag indicating whether the state of the merchant matches the state of the users    | True, False |
+| `merchant_state_diff`       | Boolean   | Flag indicating whether the state of the merchant matches the state of the users    | true, false |
 | `amount_is_refund`          | Integer   | Flag indicating if transaction values were negative | 0, 1   |
 | `amount_log`                | Float     | Log of transaction amount  | 2.309561  |
 | `von_mises_likelihood_card` | Float     | Measures how typical the transaction timing is for a given card  | 1.285982 |
@@ -160,8 +160,8 @@ A GNN is well suited for this setting because it learns embeddings (feature repr
 python Code/Models/Challenger models/hetero_graphsage_build_graph.py
 ```
 3. Run hetero_graphsage_model_training.ipynb to train the Heterogeneous GraphSAGE model and produce:
-    * best_search_model.pt
-    * search_summary.json
+    * `best_search_model.pt`
+    * `search_summary.json`
 ```
 Code/Models/Challenger models/hetero_graphsage_model_training.ipynb
 ```
@@ -179,7 +179,7 @@ To combine these strengths, a stacking ensemble was used: the Heterogeneous Grap
 1. Follow the above steps in `Instructions on how to run the models` section
 
 2. Run `graphsage_lgbm_ensemble.ipynb` to:
-    * load the trained GNN checkpoint (best_search_model.pt) and `search_summary.json`
+    * load the trained GNN checkpoint (`best_search_model.pt`) and `search_summary.json`
     * extract 768-dimensional edge embeddings
     * train the LightGBM classifier on these embeddings
     * generate validation/test predictions
