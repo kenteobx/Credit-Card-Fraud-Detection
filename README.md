@@ -125,6 +125,7 @@ We used a logistic regression model as the baseline model as it is a classificat
 A Random Forest Classifier was selected as a challenger model because it can address the challenges that come with transactional datasets such as class imbalance, mixed features types and nonlinear fraud patterns. Fraudulent transactions are rare and depend on complex nonlinear behavioural and contextual features such as transaction frequency, amount, location and merchant. For the credit card transactions dataset, it is severely imbalanced, with only 0.12% of the transactions being fraudulent. Moreover, an analysis of the correlation between the features, consisting of both engineered and existing, shows that the features are mostly weakly correlated with the target variable (“Is Fraud?”). This suggests that fraud cannot be easily separated using linear relationships and most likely depends on nonlinear interactions. Hence, a Random Forest Classifier is suitable to be used as a challenger model.
 
 <u>Steps to run the Random Forest model</u>
+
 1. Follow the above steps in `Instructions on how to run the models` section
 
 2. Open and execute `feature_eng_rf.ipynb` to obtain the processed datasets for the random forest model
