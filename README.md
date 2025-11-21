@@ -16,7 +16,7 @@ Credit-Card-Fraud-Detection/
 │       └── feature_eng.ipynb                           # preprocessing steps and feature engineering
 │   ├── Models
 │       ├── Baseline model
-│       ├── Challenger models                          
+│       └── Challenger models                          
 │           ├── Random Forest Classifier.ipynb          # random forest model
 │           ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
 │           └── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
