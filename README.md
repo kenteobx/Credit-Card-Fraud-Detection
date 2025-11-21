@@ -125,7 +125,20 @@ Notebooks/Feature Engineering/feature_eng.ipynb
 ### Heterogeneous GraphSAGE
 
 
-### LightGBM ensemble
+### GraphSAGE - LightGBM ensemble
+#### Methodology
+LightGBM was trained on the extracted embeddings with the original fraud labels. Key settings:
+* Objective: Binary classification
+* Optimisation Metrics: Average Precision (PR-AUC) and ROC-AUC
+* Class Imbalance Handling:
+  * scale_pos_weight ≈ 8.72 (matching the fraud ratio in the training split)
+* Regularisation:
+  * Feature fraction = 0.8
+  * Bagging fraction = 0.8
+* Model Capacity:
+  * 63 leaves per tree
+  * Learning rate = 0.05
+Only the GNN-derived embeddings were used; raw edge attributes were not included, ensuring the GNN acts as the main representation learner.
 
 
 ## Evaluation of Models
