@@ -1,0 +1,80 @@
+{
+  "focus_metric": "pr",
+  "search_space": {
+    "lr": [
+      0.0003,
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "hidden_channels": [
+      128,
+      256
+    ],
+    "out_channels": [
+      64,
+      128,
+      256
+    ],
+    "num_neighbors": [
+      [
+        25,
+        10
+      ],
+      [
+        15,
+        10
+      ],
+      [
+        10,
+        10
+      ]
+    ],
+    "dropout_p": [
+      0.2,
+      0.3,
+      0.5
+    ],
+    "weight_decay": [
+      0.0,
+      1e-05,
+      0.0001,
+      0.001
+    ],
+    "aggr_rel": [
+      "mean",
+      "sum"
+    ],
+    "aggr_sage": [
+      "mean",
+      "sum"
+    ]
+  },
+  "n_trials": 10,
+  "epochs_per_trial": 15,
+  "seed": 42,
+  "best": {
+    "focus_metric": "pr",
+    "best_val_focus": 0.600571,
+    "best_val_roc_auc": 0.899864,
+    "best_val_pr_auc": 0.600571,
+    "params": {
+      "lr": 0.002,
+      "hidden_channels": 256,
+      "out_channels": 128,
+      "num_neighbors": [
+        25,
+        10
+      ],
+      "dropout_p": 0.2,
+      "weight_decay": 0.0001,
+      "aggr_rel": "mean",
+      "aggr_sage": "mean"
+    },
+    "seed": 42,
+    "timestamp": 1763455999,
+    "data_path": "/content/drive/MyDrive/graph_15features_scaled_balanced.pt",
+    "batch_size": 2048,
+    "num_workers": 0
+  }
+}
