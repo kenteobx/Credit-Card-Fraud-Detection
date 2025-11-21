@@ -114,7 +114,7 @@ pip install -r requirements.txt
 
 4. Open and execute `feature_eng.ipynb` to obtain train and test splits
 ```
-Notebooks/Feature Engineering/feature_eng.ipynb
+Code/Feature Engineering/feature_eng.ipynb
 ```
 ### Logistic Regression
 #### Motivation
@@ -125,7 +125,7 @@ We used a logistic regression model as the baseline model as it is a classificat
 
 2. Open and execute `logistic_regression.ipynb` to run the logistic regression model
 ```
-Notebooks/Models/Baseline model/logistic_regression.ipynb
+Code/Models/Baseline model/logistic_regression.ipynb
 ```
 
 ### Random Forest
@@ -139,11 +139,11 @@ A Random Forest Classifier was selected as a challenger model because it can add
 
 2. Open and execute `feature_eng_rf.ipynb` to obtain the processed datasets for the random forest model
 ```
-Notebooks/Feature Engineering/feature_eng_rf.ipynb
+Code/Feature Engineering/feature_eng_rf.ipynb
 ```
 3. Open and execute `Random Forest Classifier.ipynb` to run the random forest model
 ```
-Notebooks/Models/Challenger models/Random Forest Classifier.ipynb
+Code/Models/Challenger models/Random Forest Classifier.ipynb
 ```
 
 ### Heterogeneous GraphSAGE
