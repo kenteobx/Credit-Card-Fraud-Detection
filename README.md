@@ -6,7 +6,18 @@ Due to the vast volume of daily transactions, financial institutions face signif
 <br><br>
 Methods:
 * Baseline Model: Logistic Regression
-* Challenger Models: Random Forest, Heterogeneous GraphSAGE, GraphSAGE-LightGBM Ensemble 
+* Challenger Models: Random Forest, Heterogeneous GraphSAGE, GraphSAGE-LightGBM Ensemble
+
+## Evaluation of Models
+
+|Model|ROC-AUC|PR-AUC|Comments|
+|-----|-------|------|--------|
+|Logistic Regression|0.5341|0.0014|Baseline is only slightly better than random guessing, with extremely low PR-AUC reflecting inability to identify fraud cases due to severe class imbalance.|
+|Random Forest|0.9823|0.6590|Achieves a strong ranking performance and solid fraud-detection effectiveness despite severe class imbalance. |
+|Heterogeneous GraphSAGE|0.8853|0.5840|Captures user–merchant behavioural structure effectively and outperforms all tabular baselines. Provides strong ranking performance under severe class imbalance, with a clear PR-AUC lift despite low fraud prevalence.|
+|GraphSAGE-LightGBM Ensemble|0.9299|0.7374|Leverages the GNN’s structural embeddings and substantially boosts predictive accuracy. LightGBM models the non-linear fraud patterns that the GNN head alone cannot, resulting in the highest overall ROC-AUC and PR-AUC.|
+
+Although the Random Forest achieves a very high ROC-AUC (0.9823), its PR-AUC is lower (0.6590). In contrast, the GNN-LightGBM Ensemble attains a slightly lower ROC-AUC (0.9299) but a higher PR-AUC (0.7374), which is the primary metric under severe class imbalance. Accordingly, the GNN-LightGBM ensemble built on GNN embeddings is the preferred model. It combines the GNN’s relational representations with LightGBM’s ability to model complex non-linear patterns, producing the strongest discrimination and the largest uplift in PR-AUC. Hence, the ensemble model is a strong candidate for deployment within a financial institution’s fraud-detection workflow, especially in environments where investigative resources are limited and high-impact cases must be surfaced efficiently.
 
 ## Repository Structure
 ```
@@ -52,7 +63,10 @@ Credit-Card-Fraud-Detection/
 │       └── sd254_users.csv
 ├── README.md                                           # project overview & documentation
 ├── eda_requirements.txt                                # dependencies for EDA notebooks
+└── feature_eng_requirements.txt                        # dependencies for feature engineering and test splits
 └── gnn_and_ensemble.txt                                # dependencies for GNN & ensemble models
+└── logreg_requirements.txt                             # dependencies for logistic regression model
+└── rf_requirements.txt                                 # dependencies for random forest model
 ```
 
 ## Dataset
@@ -186,17 +200,6 @@ To combine these strengths, a stacking ensemble was used: the Heterogeneous Grap
 ```
 Code/Models/Challenger models/graphsage_lgbm_ensemble.ipynb
 ```
-
-## Evaluation of Models
-
-|Model|ROC-AUC|PR-AUC|Comments|
-|-----|-------|------|--------|
-|Logistic Regression|0.5341|0.0014|Baseline is only slightly better than random guessing, with extremely low PR-AUC reflecting inability to identify fraud cases due to severe class imbalance.|
-|Random Forest|0.9823|0.6590|Achieves a strong ranking performance and solid fraud-detection effectiveness despite severe class imbalance. |
-|Heterogeneous GraphSAGE|0.8853|0.5840|Captures user–merchant behavioural structure effectively and outperforms all tabular baselines. Provides strong ranking performance under severe class imbalance, with a clear PR-AUC lift despite low fraud prevalence.|
-|GraphSAGE-LightGBM Ensemble|0.9299|0.7374|Leverages the GNN’s structural embeddings and substantially boosts predictive accuracy. LightGBM models the non-linear fraud patterns that the GNN head alone cannot, resulting in the highest overall ROC-AUC and PR-AUC.|
-
-Although the Random Forest achieves a very high ROC-AUC (0.9823), its PR-AUC is lower (0.6590). In contrast, the GNN-LightGBM Ensemble attains a slightly lower ROC-AUC (0.9299) but a higher PR-AUC (0.7374), which is the primary metric under severe class imbalance. Accordingly, the GNN-LightGBM ensemble built on GNN embeddings is the preferred model. It combines the GNN’s relational representations with LightGBM’s ability to model complex non-linear patterns, producing the strongest discrimination and the largest uplift in PR-AUC. Hence, the ensemble model is a strong candidate for deployment within a financial institution’s fraud-detection workflow, especially in environments where investigative resources are limited and high-impact cases must be surfaced efficiently.
 
 ## Potential Implementation
 
