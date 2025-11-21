@@ -27,34 +27,34 @@ Credit-Card-Fraud-Detection/
 │           └── Random Forest Classifier.ipynb          # RF model
 │
 ├── Data/
-│   ├── raw/                                             # raw unprocessed datasets
-│   │   ├── README.md
-│   │   ├── sd254_cards.csv
-│   │   └── sd254_users.csv
+│   ├── gnn/                                             # graph dataset + GNN model outputs
+│   │   ├── best_search_model.pt                         # best hetero GraphSAGE model weights
+│   │   ├── graph_15features_scaled_balanced.pt          # processed heterogeneous graph dataset
+│   │   └── search_summary.json                          # hyperparameter tuning summary
 │   │
-│   ├── processed/                                       # datasets after preprocessing
-│   │   ├── baseline_splits/                             # baseline train/test splits
-│   │   │   ├── train_X.csv
-│   │   │   ├── train_y.csv
+│   ├── processed/                                       # datasets after feature engineering
+│   │   ├── baseline_splits/                             # baseline model splits
 │   │   │   ├── test_X.csv
-│   │   │   └── test_y.csv
+│   │   │   ├── test_y.csv
+│   │   │   ├── train_X.csv
+│   │   │   └── train_y.csv
 │   │   │
 │   │   └── challenger_splits/                           # challenger-model splits
-│   │       ├── rf_splits/                               # splits used for Random Forest model
-│   │       │   ├── README.md
-│   │       │   ├── train_y.csv
-│   │       │   └── test_y.csv
+│   │       ├── original/                                # original challenger splits
+│   │       │   ├── test_X.csv
+│   │       │   ├── test_y.csv
+│   │       │   ├── train_X.csv
+│   │       │   └── train_y.csv
 │   │       │
-│   │       └── original/                                # original challenger splits
-│   │           ├── train_X.csv
-│   │           ├── train_y.csv
-│   │           ├── test_X.csv
-│   │           └── test_y.csv
+│   │       └── rf_splits/                               # Random Forest-only splits
+│   │           ├── README.md
+│   │           ├── test_y.csv
+│   │           └── train_y.csv
 │   │
-│   └── gnn/
-│       ├── graph_15features_scaled_balanced.pt   # processed heterogeneous graph dataset used for GNN training
-│       ├── best_search_model.pt                  # best hetero GraphSAGE model weights from hyperparameter search
-│       └── search_summary.json                   # JSON log of search space, trials, and best hyperparameters
+│   └── raw/                                             # original unprocessed datasets
+│       ├── README.md
+│       ├── sd254_cards.csv
+│       └── sd254_users.csv
 │
 ├── README.md                                             # project overview & documentation
 ├── eda_requirements.txt                                  # dependencies for EDA notebooks
