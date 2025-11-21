@@ -203,3 +203,6 @@ Although the Random Forest achieves a very high ROC-AUC (0.9823), its PR-AUC is 
 The model can be deployed as a case-based investigation tool that is triggered after a report from customers regarding a suspicious activity. When the dispute is raised, the model is able to generate risk scores for the related transaction and entities. This helps investigators quickly identify additional fraudulent activity on the same account and within the same clusters, allowing institutions to block cards, reverse charges and prevent further losses. 
 
 The same model can also be used as a continuous monitoring system in the company’s fraud management department. On a regular basis, the model can help to score new transactions and update risk scores for users, cards, merchants and flag possible clusters. These outputs can be displayed on a dashboard and form an alert list for the fraud management team, supporting the identification of undetected fraud rings and suspicious networks. 
+
+## Contributors
+Isabella Chong, Koh Ni Shyuen, Tan Shu Hui, Teo Bing Xing Kenneth, Nur Diyanah Binte Hasan Malik, Wong Yan Kai
