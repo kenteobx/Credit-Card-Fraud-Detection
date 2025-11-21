@@ -62,11 +62,7 @@ Credit-Card-Fraud-Detection/
 │       ├── sd254_cards.csv
 │       └── sd254_users.csv
 ├── README.md                                           # project overview & documentation
-├── eda_requirements.txt                                # dependencies for EDA notebooks
-└── feature_eng_requirements.txt                        # dependencies for feature engineering and test splits
-└── gnn_and_ensemble.txt                                # dependencies for GNN & ensemble models
-└── logreg_requirements.txt                             # dependencies for logistic regression model
-└── rf_requirements.txt                                 # dependencies for random forest model
+└── requirements.txt                                    # Dependencies required
 ```
 
 ## Dataset
