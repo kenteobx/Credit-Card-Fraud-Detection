@@ -1,40 +1,46 @@
 # Credit Card Fraud Detection
 ## About the project
 Due to the vast volume of daily transactions, financial institutions face significant challenges in detecting and preventing fraudulent card transactions. Traditional fraud detection systems often fail to adapt to the speed of the evolving fraud tactics, resulting in undetected fraud that not only inconvenience customers and merchants but can also lead to losses in financial institutions.
-This project aims to develop a data-driven fraud detection system that is capable of accurately identifying fraudulent activities using card transactions. By leveraging data analysis and a range of algorithms, this projects aims to accurately identify fraudulent activities, strengthening financial risk management systems.
+<br><br>
+**This project aims to develop a data-driven fraud detection system that is capable of accurately identifying fraudulent activities using card transactions.** By leveraging data analysis and a range of algorithms, this project aims to accurately identify fraudulent activities, strengthening financial risk management systems.
+<br><br>
+Methods:
+* Baseline Model: Logistic Regression
+* Challenger Models: Random Forest, Heterogeneous GraphSAGE, GraphSAGE-LightGBM Ensemble 
 
 ## Repository Structure
 ```
 Credit-Card-Fraud-Detection/
 ├── Notebooks/
 │   ├── EDA
-│       └── EDA.ipynb                                   # EDA of engineered dataset
+│   │   └── EDA.ipynb                                   # EDA of engineered dataset
 │   ├── Feature Engineering
-│       ├── feature_eng.ipynb                           # preprocessing steps and feature engineering
-│       └── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
+│   │   ├── feature_eng.ipynb                           # preprocessing steps and feature engineering
+│   │   └── feature_eng_rf.ipynb                        # preprocessing and feature engineering for random forest
 │   └── Models
 │       ├── Baseline model
+│       │   └── logistic_regression.ipynb               # baseline logistic regression model
 │       └── Challenger models                          
 │           ├── graphsage_lgbm_ensemble.ipynb           # graphsage and lgbm ensemble model
-│           ├── hetero_graphsage_build_graph.py            
+│           ├── hetero_graphsage_build_graph.py         # prepares dataset for hetero graphsage and ensemble model
 │           ├── hetero_graphsage_model_training.ipynb   # hetero graphsage model
 │           └── Random Forest Classifier.ipynb          # random forest model
 ├── Data/
-│   ├── raw/                                            # contains original datasets
-│       ├── README.md                                   # Instructions for raw datasets
-│       ├── sd254_cards.csv
-│       └── sd254_users.csv
+│   ├── raw/                                            
+│   │   ├── README.md                                   # instructions for raw datasets
+│   │   ├── sd254_cards.csv                             # original cards dataset
+│   │   └── sd254_users.csv                             # original users dataset
 │   └── processed/  
 │       ├── baseline_splits/                            # contains splits for baseline model
 │       └── challenger_splits/                          # contains splits for challenger models
-│           ├── rf_splits/                              # contains splits used in random forest model
-│               ├── README.md                           # Instructions for random forest processed datasets
+│           └── rf_splits/                              # contains splits used in random forest model
+│               ├── README.md                           # instructions for random forest processed datasets
 │               ├── test_y.csv
 │               └── train_y.csv
 ├── GNN Data/
-│ ├── best_search_model.pt                              # best model
-│ ├── graph_15features_scaled_balanced.pt               # processed heterogeneous graph dataset
-│ └── search_summary.json                               # best model hyperparameters
+│   ├── best_search_model.pt                            # best model
+│   ├── graph_15features_scaled_balanced.pt             # processed heterogeneous graph dataset
+│   └── search_summary.json                             # best model hyperparameters
 ├── README.md                                           # project documentation
 ├── eda_requirements.txt                                # Python dependencies for EDA.ipynb
 └── requirements.txt                                    # Python dependencies for GNN
@@ -50,8 +56,8 @@ The dataset consists of:
 * `sd254_users.csv`: contains demographic and financial(e.g. yearly income, total debt) information on the users 
 
 ### Data Dictionary of Processed Dataset
-| Variable Name               | Data Type | Description                      | Example            |
-|-----------------------------|-----------|----------------------------------|--------------------|
+| Variable Name         | Data Type | Description                      | Example            |
+|-----------------------|-----------|----------------------------------|--------------------|
 | `User`                      | Integer   | User ID              | 716      |
 | `Card`                      | Integer   | User's nth card      | 2        |
 | `Year`                      | Integer   | Year of transaction  | 2011     |
@@ -79,16 +85,33 @@ The dataset consists of:
 | `Card Brand`                | String    | Brand of card used for transaction  | "Mastercard"   |
 | `Credit Limit`              | Float     | Card's credit limit   | 39751.0  |
 | `Card on Dark Web`          | String    | Whether the card is on the dark web    | "No"     |
-| `merchant_state_diff`       | Boolean   | Flag indicating whether the state of the merchant matches the state of the users    | True,False |
+| `merchant_state_diff`       | Boolean   | Flag indicating whether the state of the merchant matches the state of the users    | True, False |
 | `amount_is_refund`          | Integer   | Flag indicating if transaction values were negative | 0, 1   |
 | `amount_log`                | Float     | Log of transaction amount  | 2.309561  |
 | `von_mises_likelihood_card` | Float     | Measures how typical the transaction timing is for a given card  | 1.285982 |
 | `Is Fraud?`                 | Integer   | Indicates if the transaction was fraudulent or not  | 0, 1 |
 
 ## Instructions on how to run the models
+1. Clone repository
+```
+git clone https://github.com/kenteobx/Credit-Card-Fraud-Detection
+cd Credit-Card-Fraud-Detection
+```
+2. Install dependencies
+```
+pip install -r requirements.txt
+```
+3. Download dataset
+
+4. Open and execute `feature_eng.ipynb` to obtain train and test splits
+```
+Notebooks/Feature Engineering/feature_eng.ipynb
+```
 ### Logistic Regression
 
+
 ### Random Forest
+
 
 ### Heterogeneous GraphSAGE
 
