@@ -11,7 +11,7 @@ Methods:
 ## Repository Structure
 ```
 Credit-Card-Fraud-Detection/
-├── Notebooks/
+├── Code/
 │   ├── EDA/
 │   │   └── EDA.ipynb                                   # exploratory data analysis
 │   ├── Feature Engineering/

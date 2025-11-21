@@ -38,7 +38,7 @@ import gc
 import random
 
 # Configuration
-DATA_DIR = "../../Data/processed/challenger_splits/original/"
+DATA_DIR = "../../../Data/processed/challenger_splits/original/"
 train_x_path = os.path.join(DATA_DIR, "train_X.csv")
 train_y_path = os.path.join(DATA_DIR, "train_y.csv")
 test_x_path  = os.path.join(DATA_DIR, "test_X.csv")
